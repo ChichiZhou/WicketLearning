@@ -1,6 +1,11 @@
 package com.hezho;
 
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.form.Button;
+import org.apache.wicket.markup.html.form.Form;
+import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
 
@@ -18,6 +23,32 @@ public class HomePage extends WebPage {
 				setResponsePage(FormPage.class);
 			}
 		});
+
+		Label label = new Label("label", "HELLO WORLD, EVERYONE");
+
+		add(label);
+
+		Label label1 = new Label("thanks", "Thanks");
+		label1.setVisible(false);
+
+		add(label1);
+
+		Form form = new Form<>("form"){
+			@Override
+			protected void onSubmit(){
+				label1.setVisible(true);
+				super.onSubmit();
+			}
+		};
+		form.add(new Label("name", "HE"));
+		form.add(new Label("surname", "ZHOU"));
+		form.add(new TextField("nameText", Model.of("")));
+		form.add(new TextField("surnameText", Model.of("")));
+		form.add(new Button("submit"));
+
+		add(form);
+
+
 
 
 	}
