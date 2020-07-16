@@ -1,5 +1,6 @@
 package com.hezho;
 
+import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
@@ -47,7 +48,16 @@ public class HomePage extends WebPage {
 		form.add(new Button("submit"));
 
 		add(form);
-
+		int messageAmount = 0;
+		WebMarkupContainer webMarkupContainer = new WebMarkupContainer("messages"){
+			@Override
+			protected void onConfigure(){
+				super.onConfigure();
+				setVisible(messageAmount <= 0);   // 这个可以用来判断是否显示 container 这部分
+			}
+		};
+		webMarkupContainer.add(new Label("amountMessage", messageAmount));
+		add(webMarkupContainer);
 
 
 
