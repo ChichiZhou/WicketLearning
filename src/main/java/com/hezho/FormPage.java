@@ -6,11 +6,7 @@ import org.apache.wicket.markup.html.form.TextField;
 
 public class FormPage extends WebPage {
     public FormPage(){
-        Label label = new Label("label", "LABEL TEST");
-
-        add(label);
-
-        add(new TextField<String>("textfield"));
+        add(new FormPanel("formPanel"));
     }
 
 }
