@@ -1,7 +1,6 @@
 package com.hezho;
 
-import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.basic.MultiLineLabel;
+import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.WebPage;
@@ -12,11 +11,12 @@ public class HomePage extends WebPage {
 	public HomePage(final PageParameters parameters) {
 		super(parameters);
 
-		WebMarkupContainer container = new WebMarkupContainer("container");
+		Label label = new Label("label", "LABEL TEST");
 
-		add(container);
+		add(label);
 
-		container.add(new MultiLineLabel("message", "HELLO WORLD \n Make Love with Shilin"));
+		add(new TextField<String>("textfield"));
+
 
 	}
 }
