@@ -6,6 +6,7 @@ import org.apache.wicket.markup.html.form.Button;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.link.Link;
+import org.apache.wicket.markup.html.panel.Fragment;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.WebPage;
@@ -59,7 +60,13 @@ public class HomePage extends WebPage {
 		webMarkupContainer.add(new Label("amountMessage", messageAmount));
 		add(webMarkupContainer);
 
+//		OwnFragment ownFragment = new OwnFragment("content","fragment", this); // 注意这里是 this
+//		add(ownFragment);
 
+		Label test1 = new Label("test1", "enclouse test1");
+		add(test1);
+		Label test2 = new Label("test2", "enclouse test2");
+		add(test2);
 
 	}
 }
