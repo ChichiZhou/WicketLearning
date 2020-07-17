@@ -55,7 +55,22 @@ public class HomePage extends WebPage {
 			protected void onConfigure(){
 				super.onConfigure();
 				setVisible(messageAmount <= 0);   // 这个可以用来判断是否显示 container 这部分
+				System.out.println("Configure");
 			}
+
+			@Override
+			protected void onBeforeRender(){
+				super.onBeforeRender();
+				System.out.println("Before");
+			}
+
+			@Override
+			protected void onInitialize(){
+				super.onInitialize();
+				System.out.println("Init");
+			}
+
+
 		};
 		webMarkupContainer.add(new Label("amountMessage", messageAmount));
 		add(webMarkupContainer);
@@ -67,6 +82,13 @@ public class HomePage extends WebPage {
 		add(test1);
 		Label test2 = new Label("test2", "enclouse test2");
 		add(test2);
+
+		add(new Link<>("loginPage") {
+			@Override
+			public void onClick() {
+				setResponsePage(LoginPage.class);
+			}
+		});
 
 	}
 }
